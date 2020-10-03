@@ -6,5 +6,5 @@
 
 Functionality:
 * The files are uploaded to the folder "upload-dir" in the classpath
-* The path(loaction) to the stored file is stored in H2 Database
+* The path(location) to the stored file is stored in H2 Database
 * The code assumes every file conatins a column named "stock" in order to query using stock ticker
