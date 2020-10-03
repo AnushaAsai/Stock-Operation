@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            <form method="POST" th:object="${fileOperation}" action="/addARecord">
+                <div>
+                    <select id="dropOperator" name="fileId">
+                        <option value="0">select file</option>
+                        <option th:each="file : ${files}" th:value="${file.id}" th:text="${file.name}"></option>
+                    </select>
+                </div>
+                <input type="text" name="appendText" id="appendText" th:field="*{record}" />
+                <input type="submit" value="Add Record"/>
+<!--                <input type="button" value="Back" name="back" 
+onclick="document.forms[0].action = 'uploadForm.jsp'; return true;" />-->
+            </form>
+        </div>
+    </body>
+</html>

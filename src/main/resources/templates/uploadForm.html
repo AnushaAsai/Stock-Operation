@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns:th="https://www.thymeleaf.org">
+    <body>
+
+        <div th:if="${message}">
+            <h2 th:text="${message}"/>
+        </div>
+
+        <div>
+            <form method="POST" enctype="multipart/form-data" action="/">
+                <table>
+                    <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+                    <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+                </table>
+            </form>
+        </div>
+
+        <div>
+            <form method="GET" action="/stockTicker">
+                <div>
+                    <input type="text" name="stockTicker" id="stockTicker" th:value="${stockTicker}"/>
+                    <input type="submit" value="Search"/>
+                    <ul>
+                        <li th:each="res : ${response}" th:text="${res}">
+
+                        </li>
+                    </ul>
+                </div>
+<!--                <input type="button" value="Add a record" name="addARecord" 
+                   onclick="document.forms[2].action = '/addRecord'; return true;" />-->
+                <a href="/addRecord">Add a record</a>
+            </form>
+        </div>
+
+    </body>
+</html>
